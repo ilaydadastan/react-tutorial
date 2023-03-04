@@ -4,6 +4,10 @@ class AddUser extends React.Component{
     state ={
         name: ''
     }
+    componentDidMount() {
+        console.log('Added Add User component')
+    }
+
     submitHandler = (e) =>{
         e.preventDefault(); // varsayilan eylemi iptal ediyor, yani sayfa yenilenmesini engelliyoruz
         this.props.addMethod(this.state.name);
@@ -12,6 +16,10 @@ class AddUser extends React.Component{
         })
 
     }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('Updated User component', prevState, this.state)
+    }
+
     changeHandler = (e) =>{
         this.setState({
             name: e.target.value
